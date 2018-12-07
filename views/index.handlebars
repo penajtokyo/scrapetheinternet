@@ -1,0 +1,30 @@
+<div id="wrapper" style="background: blue;">
+  <h1 style="text-align: center">Scrape the Internet</h1>
+  <h2 style="text-align: center"><i>Starting with KSL.com</i></h2>
+  <div>
+    {{#each articles}}
+    <div style="background: white; margin: 10px 0px 0px 0px;" class="openArticleData" data-id={{this._id}}>
+      <a data-id={{this._id}} href={{this.url}}>{{this.headline}}</a>
+      <p>{{this.summary}}</p>
+
+      <div id="notesContainer{{this._id}}" style="display:none;">
+        <div id="noteBox">
+          {{#each this.notes}}
+            <h2>{{this.title}}</h2>
+            <p>this.body</p>
+          {{/each}}
+        </div>
+        <div id="addNote">
+          <input id='titleinput'>
+          <textarea id='bodyinput'></textarea>
+          <button data-id='{{this._id}}' id='savenote'>Save Note</button>
+        </div>
+      </div>
+
+    </div>
+    {{/each}}
+  </div>
+  <div id="notes"></div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="app.js"></script>
